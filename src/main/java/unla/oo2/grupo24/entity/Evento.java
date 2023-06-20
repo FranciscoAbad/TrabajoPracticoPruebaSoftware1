@@ -1,6 +1,7 @@
 package unla.oo2.grupo24.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,9 +18,9 @@ public class Evento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_evento",nullable=false)
 	private long idEvento;
-	
-	@Column(name="fecha",length=60,nullable=false)
-	private LocalDate fecha;
+
+	@Column(name="fechaHora",length=60,nullable=false)
+	private LocalDateTime fechaHora;
 	
 	@Column(name="descripcion",length=60,nullable=false)
 	private String descripcion;
@@ -30,18 +31,18 @@ public class Evento {
 	
 	public Evento() {}
 
-	public Evento(LocalDate fecha, String descripcion) {
+	public Evento(LocalDateTime fechaHora, String descripcion) {
 		super();
-		this.fecha = fecha;
+		this.fechaHora = fechaHora;
 		descripcion = descripcion;
 	}
 
-	public LocalDate getFecha() {
-		return fecha;
+	public LocalDateTime getFecha() {
+		return fechaHora;
 	}
 
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
+	public void setFecha(LocalDateTime fechaHora) {
+		this.fechaHora = fechaHora;
 	}
 
 	public String getDescripcion() {

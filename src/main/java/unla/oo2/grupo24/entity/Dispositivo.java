@@ -12,6 +12,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -32,7 +36,7 @@ public class Dispositivo {
 	
 	@Column(name="activo",length=60,nullable=false)
 	private boolean activo;
-	
+
 	@Column(name="fecha",length=60,nullable=false)
 	private LocalDate fecha;
 	
