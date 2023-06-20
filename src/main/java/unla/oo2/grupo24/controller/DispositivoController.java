@@ -27,6 +27,10 @@ public class DispositivoController {
 		return "/views/dispositivos/listar";
 	}
 	
-	
+	@GetMapping("/crear")
+	public String crear() {
+		
+		return "/views/dispositivos/crear";
+	}
 
 }
