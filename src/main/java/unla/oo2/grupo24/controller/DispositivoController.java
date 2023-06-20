@@ -1,4 +1,4 @@
-package unla.oo2.grupo24.controller;
+package unla.oo2.grupo24.Controller;
 
 import java.util.List;
 
@@ -8,8 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import unla.oo2.grupo24.entity.Dispositivo;
-import unla.oo2.grupo24.service.IDispositivoService;
+import unla.oo2.grupo24.Entity.Dispositivo;
+import unla.oo2.grupo24.Service.IDispositivoService;
+
 
 @Controller
 @RequestMapping("/views/dispositivos")

@@ -1,9 +1,9 @@
-package unla.oo2.grupo24.service;
+package unla.oo2.grupo24.Service;
 
 import java.util.List;
 
-import unla.oo2.grupo24.entity.Banio;
-import unla.oo2.grupo24.entity.Dispositivo;
+import unla.oo2.grupo24.Entity.Banio;
+import unla.oo2.grupo24.Entity.Dispositivo;
 
 public interface IDispositivoService {
 	

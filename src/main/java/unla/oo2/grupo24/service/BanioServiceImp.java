@@ -1,12 +1,12 @@
-package unla.oo2.grupo24.service;
+package unla.oo2.grupo24.Service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import unla.oo2.grupo24.entity.Banio;
-import unla.oo2.grupo24.repository.BanioRepo;
+import unla.oo2.grupo24.Entity.Banio;
+import unla.oo2.grupo24.Repository.BanioRepo;
 
 @Service
 public class BanioServiceImp implements IBanioService {

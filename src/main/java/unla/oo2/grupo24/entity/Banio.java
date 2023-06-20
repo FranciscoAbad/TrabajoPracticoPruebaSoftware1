@@ -1,4 +1,4 @@
-package unla.oo2.grupo24.entity;
+package unla.oo2.grupo24.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
