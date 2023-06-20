@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import unla.oo2.grupo24.entity.Banio;
-import unla.oo2.grupo24.repository.imp.BanioRepo;
+import unla.oo2.grupo24.repository.BanioRepo;
 import unla.oo2.grupo24.service.IBanioService;
-
 
 @Service
 public class BanioServiceImp implements IBanioService {
