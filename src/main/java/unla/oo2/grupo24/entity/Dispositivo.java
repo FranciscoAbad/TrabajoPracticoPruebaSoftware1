@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,8 +14,9 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
 
 @Entity
+@DiscriminatorColumn(name="tipo_dispositivo")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Dispositivo {
+public abstract class Dispositivo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

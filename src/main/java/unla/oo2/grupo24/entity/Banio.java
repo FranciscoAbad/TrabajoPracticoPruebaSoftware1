@@ -1,10 +1,12 @@
 package unla.oo2.grupo24.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 
 @Entity
+@DiscriminatorValue("banio")
 @PrimaryKeyJoinColumn(name = "id_banio")
 public class Banio extends Dispositivo {
 	
