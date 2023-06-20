@@ -14,16 +14,20 @@ public class Contenedor extends Dispositivo {
     @Column(name="tipo",length=60,nullable=false)
     private String tipo;
 
+    @Column(name="ubicacion",length=60,nullable=false)
+    private String ubicacion;
+
 
     public Contenedor() {}
 
 
 
 
-    public Contenedor(boolean lleno, String tipo) {
+    public Contenedor(boolean lleno, String tipo,String ubicacion) {
         super();
         this.lleno = lleno;
         this.tipo = tipo;
+        this.ubicacion= ubicacion;
 
     }
 
@@ -34,14 +38,18 @@ public class Contenedor extends Dispositivo {
         return tipo;
     }
 
-
-
-
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
 
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
 
 
     public boolean isLleno() {
