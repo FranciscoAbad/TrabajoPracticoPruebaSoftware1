@@ -1,9 +1,10 @@
-package unla.oo2.grupo24.entities;
+package unla.oo2.grupo24.entity;
 
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import unla.oo2.grupo24.entity.User;
 
 import java.time.LocalDateTime;
 

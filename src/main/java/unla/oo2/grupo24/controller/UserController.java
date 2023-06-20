@@ -1,4 +1,4 @@
-package unla.oo2.grupo24.controllers;
+package unla.oo2.grupo24.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -6,13 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import unla.oo2.grupo24.entities.User;
-import unla.oo2.grupo24.entities.UserRole;
+import unla.oo2.grupo24.entity.User;
+import unla.oo2.grupo24.entity.UserRole;
 import unla.oo2.grupo24.helpers.ViewRouteHelper;
-import unla.oo2.grupo24.repositories.IUserRepository;
-import unla.oo2.grupo24.repositories.RoleRepository;
+import unla.oo2.grupo24.repository.IUserRepository;
+import unla.oo2.grupo24.repository.RoleRepository;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import unla.oo2.grupo24.services.UserService;
+import unla.oo2.grupo24.service.IBanioService;
 
 
 @Configuration
@@ -22,7 +22,7 @@ public class SecurityConfiguration {
 
     @Autowired
     @Qualifier("userService")
-    private UserService userService;
+    private IBanioService.UserService userService;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

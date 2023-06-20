@@ -1,4 +1,4 @@
-package unla.oo2.grupo24.entities;
+package unla.oo2.grupo24.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
