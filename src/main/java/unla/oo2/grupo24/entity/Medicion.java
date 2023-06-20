@@ -16,7 +16,7 @@ public class Medicion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_medicion",nullable=false)
-	private long id_medicion;
+	private long idMedicion;
 	
 	@Column(name="fecha",length=60,nullable=false)
 	private LocalDate fecha;
@@ -53,11 +53,11 @@ public class Medicion {
 	}
 
 	public long getId() {
-		return id_medicion;
+		return idMedicion;
 	}
 
 	public void setId(long id) {
-		this.id_medicion = id;
+		this.idMedicion = id;
 	}
 
 	public Dispositivo getDispositivo() {

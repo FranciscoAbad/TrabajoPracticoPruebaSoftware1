@@ -19,7 +19,7 @@ public class Dispositivo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_dispositivo",nullable=false)
-	private long id_dispositivo;
+	private long idDispositivo;
 	
 	@Column(name="nombre",length=60,nullable=false)
 	private String nombre;
@@ -51,11 +51,11 @@ public class Dispositivo {
 	}
 
 	public long getIdDispositivo() {
-		return id_dispositivo;
+		return idDispositivo;
 	}
 
 	public void setIdDispositivo(long idDispositivo) {
-		this.id_dispositivo = idDispositivo;
+		this.idDispositivo = idDispositivo;
 	}
 
 	public String getNombre() {
@@ -90,12 +90,12 @@ public class Dispositivo {
 		this.fecha = fecha;
 	}
 
-	public long getId_dispositivo() {
-		return id_dispositivo;
+	public long getidDispositivo() {
+		return idDispositivo;
 	}
 
-	public void setId_dispositivo(long id_dispositivo) {
-		this.id_dispositivo = id_dispositivo;
+	public void setidDispositivo(long idDispositivo) {
+		this.idDispositivo = idDispositivo;
 	}
 
 	public List<Evento> getEventos() {

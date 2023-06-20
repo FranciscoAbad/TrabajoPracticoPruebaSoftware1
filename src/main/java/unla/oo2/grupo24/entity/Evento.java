@@ -16,7 +16,7 @@ public class Evento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_evento",nullable=false)
-	private long id_evento;
+	private long idEvento;
 	
 	@Column(name="fecha",length=60,nullable=false)
 	private LocalDate fecha;
@@ -53,11 +53,11 @@ public class Evento {
 	}
 
 	public long getId() {
-		return id_evento;
+		return idEvento;
 	}
 
 	public void setId(long id) {
-		this.id_evento = id;
+		this.idEvento = id;
 	}
 
 	public Dispositivo getDispositivo() {
