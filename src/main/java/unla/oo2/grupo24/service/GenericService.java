@@ -10,7 +10,7 @@ public interface GenericService<T> {
 
     public abstract T getById(long id);
 
-    public abstract T modify(long id);
+    public abstract T modify(T object);
 
     public abstract boolean delete(long id);
 
