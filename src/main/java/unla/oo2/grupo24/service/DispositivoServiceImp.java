@@ -1,13 +1,13 @@
-package unla.oo2.grupo24.Service;
+package unla.oo2.grupo24.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import unla.oo2.grupo24.Entity.Banio;
-import unla.oo2.grupo24.Entity.Dispositivo;
-import unla.oo2.grupo24.Repository.DispositivoRepo;
+import unla.oo2.grupo24.entity.Banio;
+import unla.oo2.grupo24.entity.Dispositivo;
+import unla.oo2.grupo24.repository.DispositivoRepo;
 
 @Service
 public class DispositivoServiceImp implements IDispositivoService {

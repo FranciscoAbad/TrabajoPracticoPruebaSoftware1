@@ -1,4 +1,4 @@
-package unla.oo2.grupo24.Entity;
+package unla.oo2.grupo24.entity;
 
 import java.time.LocalDate;
 
