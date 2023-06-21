@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Entity
+@DiscriminatorColumn(name="tipo_dispositivo")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "tipo_dispositivo")
 public class Dispositivo {
