@@ -38,7 +38,6 @@ public class EstacionamientoController {
     }
 
 
-
     @GetMapping("/estacionamiento/create")
     public String formRegistroEstacionamiento(Model model) {
 
@@ -52,18 +51,23 @@ public class EstacionamientoController {
     public String registerUser( @ModelAttribute("estacionamiento") SensorEstacionamiento estacionamiento,Model model) {
 
 
-
-
 estacionamiento.setFecha(LocalDate.now());
 estacionamiento.setActivo(true);
 estacionamiento.setEstadoActual(false);
 
         service.add(estacionamiento);
-        System.out.println(estacionamiento);
 
-        List<SensorEstacionamiento> listado = service.getAll();
-        model.addAttribute("lista",listado);
 
-        return "views/dispositivos/listaEstacionamientos";
+
+
+        return "redirect:/estacionamiento";
+    }
+
+    @GetMapping("/estacionamiento/{id}")
+    public String eliminarContenedor(@PathVariable("id") long id, Model model) {
+
+        service.delete(id);
+
+        return "redirect:/estacionamiento";
     }
 }

@@ -27,6 +27,8 @@
       <th scope="col">Descripcion</th>
       <th scope="col">Activo</th>
       <th scope="col">Fecha</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Eliminar</th>
 
     </tr>
     </thead>
@@ -39,6 +41,7 @@
       <th scope="row" th:text="${cl.activo}"></th>
       <th scope="row" th:text="${cl.fecha}"></th>
       <th scope="row" th:text="${cl.estadoActual?'Ocupado' : 'Vacio'}"></th>
+      <th><a th:href="@{'/estacionamiento/' + ${cl.idDispositivo}}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este registro?')">Eliminar</a></th>
     </tr>
     </tbody>
   </table>
