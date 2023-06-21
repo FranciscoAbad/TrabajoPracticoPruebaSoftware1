@@ -88,7 +88,7 @@ System.out.println(evento);
         List<Dispositivo> listaDispositivos = serviceDispositivo.listarTodos();
         model.addAttribute("listaDispositivos", listaDispositivos);
     }
-    
+
 
 
 }
