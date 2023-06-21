@@ -38,6 +38,7 @@ public class EventoController {
         model.addAttribute("lista",listado);
 
 
+        agregarListaDispositivosAlModelo(model);
         return "eventos/listaEventos";
     }
 
@@ -64,5 +65,30 @@ System.out.println(evento);
 
         return "eventos/listaEventos";
     }
+
+    @PostMapping("/eventos/filtrar")
+    public String filtrarEventos(@RequestParam(value = "dispositivoId", required = false) Integer dispositivoId, Model model) {
+        List<Evento> listado;
+
+        if (dispositivoId != null) {
+            // Realiza la filtración de eventos por dispositivo
+            listado = service.filtrarPorDispositivo(dispositivoId);
+        } else {
+            // Si no se selecciona ningún dispositivo, obtén todos los eventos
+            listado = service.getAll();
+        }
+
+        model.addAttribute("lista", listado);
+        agregarListaDispositivosAlModelo(model);
+
+        return "eventos/listaEventos";
+    }
+
+    private void agregarListaDispositivosAlModelo(Model model) {
+        List<Dispositivo> listaDispositivos = serviceDispositivo.listarTodos();
+        model.addAttribute("listaDispositivos", listaDispositivos);
+    }
+    
+
 
 }

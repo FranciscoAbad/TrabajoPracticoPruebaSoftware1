@@ -1,5 +1,5 @@
 <body>
-<h1>Lista de Estacionamientos</h1>
+<h1>Lista de Eventos</h1>
 
 
 <header>
@@ -11,7 +11,7 @@
     <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nombre</th>
+      <th scope="col">FechaHora</th>
       <th scope="col">Descripcion</th>
       <th scope="col">Dispositivo</th>
     </tr>
@@ -28,7 +28,22 @@
   </table>
 </div>
 
-
+<div class="container">
+  <div class="row mb-3">
+    <div class="col">
+      <form th:action="@{/eventos/filtrar}" method="post">
+        <div class="input-group">
+          <select class="form-select" name="dispositivoId">
+            <option value="">Todos los dispositivos</option>
+            <!-- Aquí debes iterar sobre los dispositivos disponibles y generar las opciones -->
+            <option th:each="dispositivo : ${listaDispositivos}" th:value="${dispositivo.idDispositivo}" th:text="${dispositivo.nombre}"></option>
+          </select>
+          <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 <footer>
 </footer>
 
