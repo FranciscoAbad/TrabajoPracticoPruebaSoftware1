@@ -3,10 +3,7 @@ package unla.oo2.grupo24.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import unla.oo2.grupo24.entity.Contenedor;
 import unla.oo2.grupo24.service.imp.ContenedorServiceImp;
 
@@ -50,6 +47,17 @@ public class ContenedorController {
         service.add(contenedor);
 
         model.addAttribute("lista",service.getAll());
+
+
+        return "views/dispositivos/listarContenedor";
+    }
+
+    @GetMapping("/contenedor/{id}")
+    public String eliminarContenedor(@PathVariable("id") long id, Model model) {
+
+            service.delete(id);
+
+        model.addAttribute("lista", service.getAll());
 
 
         return "views/dispositivos/listarContenedor";

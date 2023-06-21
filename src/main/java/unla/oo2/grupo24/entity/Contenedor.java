@@ -10,6 +10,9 @@ import java.time.LocalDate;
 @PrimaryKeyJoinColumn(name = "id_contenedor")
 public class Contenedor extends Dispositivo {
 
+
+
+
     @Column(name="lleno",nullable=false)
     private boolean lleno;
 

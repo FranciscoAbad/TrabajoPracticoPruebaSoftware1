@@ -31,6 +31,7 @@
       <th scope="col">tipo</th>
       <th scope="col">ubicacion</th>
 
+
     </tr>
     </thead>
     <tbody>
@@ -43,7 +44,9 @@
       <th scope="row" th:text="${cl.fecha}"></th>
       <th scope="row" th:text="${cl.lleno}"></th>
       <th scope="row" th:text="${cl.tipo}"></th>
-      <th scope="row" th:text="${cl.ubicacion}"></th>
+      <th scope="row" th:text="${cl.ubicacion}">
+      <th><a th:href="@{'/contenedor/' + ${cl.idDispositivo}}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este registro?')">Eliminar</a></th>
+
     </tr>
     </tbody>
   </table>
