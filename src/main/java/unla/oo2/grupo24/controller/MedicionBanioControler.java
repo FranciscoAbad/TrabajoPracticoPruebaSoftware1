@@ -13,36 +13,37 @@ import unla.oo2.grupo24.entity.Banio;
 import unla.oo2.grupo24.entity.Evento;
 import unla.oo2.grupo24.entity.MedicionBanio;
 import unla.oo2.grupo24.service.IBanioService;
+import unla.oo2.grupo24.service.IMedicionBanioService;
 import unla.oo2.grupo24.service.imp.BanioServiceImp;
 import unla.oo2.grupo24.service.imp.MedicionBanioImp;
 
 @Controller
 public class MedicionBanioControler {
+
+	@Autowired
+	IBanioService serviceBanio;
 	
 	@Autowired
-	IBanioService serviceMedicion;
-	 
-	 @GetMapping("/medicionesbanio")
-	    public String formRegistroEstacionamiento(Model model) {
-		 	
-	        return "views/dispositivos/medicionbanio";
-	    }
-	 
-	 @PostMapping("/medicionesbanio")
-	    public String agregarMedicionEstacionamiento(@RequestParam("fechaHora") LocalDateTime fechaHora, @RequestParam("idDispositivo") int idDispositivo,@RequestParam(value = "higienizado", defaultValue = "false") boolean higienizado) {
-	       
-	     Banio sensor=serviceMedicion.buscarId(idDispositivo);
-	      
-	       if(higienizado!=sensor.isHigienizado()){
+	IMedicionBanioService serviceMedicion;
 
-	          
-	            sensor.setHigienizado(higienizado);
-	            MedicionBanio medicion=new MedicionBanio(fechaHora,sensor,higienizado);
-	            serviceMedicion.guardarDispositivo(sensor);
-	     
-	        }
+	@GetMapping("/medicionesbanio")
+	public String formRegistroEstacionamiento(Model model) {
 
-	        return "views/dispositivos/medicionbanio";
-	    }
+		return "views/dispositivos/medicionbanio";
+	}
+
+	@PostMapping("/medicionesbanio")
+	public String agregarMedicionEstacionamiento(@RequestParam("fechaHora") LocalDateTime fechaHora,
+			@RequestParam("idDispositivo") int idDispositivo,
+			@RequestParam(value = "higienizado", defaultValue = "false") boolean higienizado) {
+
+		Banio banio = serviceBanio.buscarId(idDispositivo);
+
+		banio.setHigienizado(higienizado);
+		MedicionBanio medicion = new MedicionBanio(fechaHora, banio, higienizado);
+		serviceMedicion.add(medicion);
+
+		return "views/dispositivos/medicionbanio";
+	}
 
 }
