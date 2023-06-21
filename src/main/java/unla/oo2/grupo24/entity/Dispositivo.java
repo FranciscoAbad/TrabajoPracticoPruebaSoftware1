@@ -125,6 +125,11 @@ public class Dispositivo {
 		this.eventos.add(e);
 	}
 
+	public void agregarMedicion(Medicion e){
+		e.setDispositivo(this);
+		this.mediciones.add(e);
+	}
+
 
 	@Override
 	public String toString() {

@@ -10,29 +10,25 @@ import java.time.LocalDate;
 @PrimaryKeyJoinColumn(name = "id_estacionamiento")
 public class SensorEstacionamiento extends Dispositivo {
 
-    public SensorEstacionamiento(){
+    @Column(name="estado_actual", nullable = false)
+    private boolean estadoActual;
+
+    public SensorEstacionamiento() {
         super();
     }
 
 
-    public SensorEstacionamiento(String nombre, String descripcion, boolean activo, LocalDate fecha, boolean plazasLibres) {
+    public SensorEstacionamiento(String nombre, String descripcion, boolean activo, LocalDate fecha, boolean estadoActual) {
         super(nombre, descripcion, activo, fecha);
-        this.plazasLibres = plazasLibres;
-    }
-
-    @Column(name="plazasLibres",nullable=false)
-    private boolean plazasLibres;
-
-    public SensorEstacionamiento(boolean plazasLibres) {
-        this.plazasLibres = plazasLibres;
-    }
-
-    public boolean isPlazasLibres() {
-        return plazasLibres;
-    }
-
-    public void setPlazasLibres(boolean plazasLibres) {
-        this.plazasLibres = plazasLibres;
-    }
+        this.estadoActual = estadoActual;
 
     }
+
+    public boolean isEstadoActual() {
+        return estadoActual;
+    }
+
+    public void setEstadoActual(boolean estadoActual) {
+        this.estadoActual = estadoActual;
+    }
+}

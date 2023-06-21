@@ -38,7 +38,7 @@
       <th scope="row" th:text="${cl.descripcion}"></th>
       <th scope="row" th:text="${cl.activo}"></th>
       <th scope="row" th:text="${cl.fecha}"></th>
-      <th scope="row" th:text="${cl.plazasLibres}"></th>
+      <th scope="row" th:text="${cl.estadoActual?'Ocupado' : 'Vacio'}"></th>
     </tr>
     </tbody>
   </table>

@@ -12,9 +12,11 @@
 <div class="container">
   <div class="jumbotron">
     <h1 class="display-5">Registrar estacionamiento</h1>
-    <form th:object=${estacionamiento} th:action="@{/estacionamiento}" method="post">
-      <input type="text" name="nombre" id="nombre" placeholder="nombre" />
-      <input type="text" name="descripcion" id="descrpicion" placeholder="descrpición" />
+    <form th:action="@{/medicionestacionamiento}" method="post">
+      <input type="datetime-local" name="fechaHora" id="fechaHora">
+      <input type="int" name="idDispositivo" id="idDispositivo" placeholder="id del dispositivo">
+      <input type="checkbox"  id="plazaOcupada" name="plazaOcupada">
+
       <input type="submit" />
     </form>
     <div th:if="${error != null}" class="alert alert-danger">

@@ -3,14 +3,14 @@ package unla.oo2.grupo24.service.imp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import unla.oo2.grupo24.entity.SensorEstacionamiento;
-import unla.oo2.grupo24.repository.EstacionamientoRepo;
+import unla.oo2.grupo24.repository.DispositivoRepo;
 import unla.oo2.grupo24.service.GenericService;
 
 import java.util.List;
 @Service
 public class EstacionamientoSevicesImp implements GenericService<SensorEstacionamiento> {
     @Autowired
-    private EstacionamientoRepo repo;
+    private DispositivoRepo repo;
     @Override
     public boolean add(SensorEstacionamiento object) {
         repo.save(object);
@@ -20,12 +20,12 @@ public class EstacionamientoSevicesImp implements GenericService<SensorEstaciona
 
     @Override
     public List<SensorEstacionamiento> getAll() {
-       return repo.findAll();
+       return repo.findAllSensorEstacionamiento();
     }
 
     @Override
     public SensorEstacionamiento getById(long id) {
-        return repo.findById(id).orElse(null);
+        return (SensorEstacionamiento) repo.findById(id).orElse(null);
     }
 
     @Override

@@ -36,7 +36,7 @@
           <select class="form-select" name="dispositivoId">
             <option value="">Todos los dispositivos</option>
             <!-- Aquí debes iterar sobre los dispositivos disponibles y generar las opciones -->
-            <option th:each="dispositivo : ${listaDispositivos}" th:value="${dispositivo.idDispositivo}" th:text="${dispositivo.nombre}"></option>
+            <option th:each="dispositivo : ${listaDispositivos}" th:value="${dispositivo.idDispositivo}" th:text="${dispositivo.nombre}+${dispositivo.descripcion}"></option>
           </select>
           <button type="submit" class="btn btn-primary">Filtrar</button>
         </div>
