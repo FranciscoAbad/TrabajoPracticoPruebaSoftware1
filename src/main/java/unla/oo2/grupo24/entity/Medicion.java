@@ -1,63 +1,56 @@
 package unla.oo2.grupo24.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Medicion {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_medicion",nullable=false)
+	@Column(name = "id_medicion", nullable = false)
 	private long idMedicion;
-	
-	@Column(name="fecha",length=60,nullable=false)
-	private LocalDate fecha;
-	
-	@Column(name="datos",length=60,nullable=false)
-	private String datos;
-	
+
+	@Column(name = "fecha_hora", nullable = false)
+	private LocalDateTime fechaHora;
+
 	@ManyToOne
-	@JoinColumn(name="id_dispositivo")
+	@JoinColumn(name = "id_dispositivo")
 	Dispositivo dispositivo;
-	
-	public Medicion() {}
 
-	public Medicion(LocalDate fecha, String datos) {
-		super();
-		this.fecha = fecha;
-		this.datos = datos;
+	public Medicion() {
 	}
 
-	public LocalDate getFecha() {
-		return fecha;
+	public Medicion(long idMedicion, LocalDateTime fechaHora, Dispositivo dispositivo) {
+		this.idMedicion = idMedicion;
+		this.fechaHora = fechaHora;
+		this.dispositivo = dispositivo;
 	}
 
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
-	}
-
-	public String getDatos() {
-		return datos;
-	}
-
-	public void setDatos(String datos) {
-		this.datos = datos;
-	}
-
-	public long getId() {
+	public long getIdMedicion() {
 		return idMedicion;
 	}
 
-	public void setId(long id) {
-		this.idMedicion = id;
+	public void setIdMedicion(long idMedicion) {
+		this.idMedicion = idMedicion;
+	}
+
+	public LocalDateTime getFechaHora() {
+		return fechaHora;
+	}
+
+	public void setFechaHora(LocalDateTime fechaHora) {
+		this.fechaHora = fechaHora;
 	}
 
 	public Dispositivo getDispositivo() {
@@ -67,5 +60,4 @@ public class Medicion {
 	public void setDispositivo(Dispositivo dispositivo) {
 		this.dispositivo = dispositivo;
 	}
-	
 }

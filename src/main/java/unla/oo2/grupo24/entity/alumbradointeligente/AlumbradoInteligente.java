@@ -9,5 +9,13 @@ import unla.oo2.grupo24.entity.Dispositivo;
 @Table(name = "alumbrado_inteligente")
 @DiscriminatorValue(value = "alumbrado_inteligente")
 public class AlumbradoInteligente extends Dispositivo {
+    private boolean encendido;
 
+    public boolean isEncendido() {
+        return encendido;
+    }
+
+    public void setEncendido(boolean encendido) {
+        this.encendido = encendido;
+    }
 }
