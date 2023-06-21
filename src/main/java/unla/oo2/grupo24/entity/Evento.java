@@ -16,10 +16,10 @@ public class Evento {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_evento",nullable=false)
+	@Column(name="id_evento",length = 60,nullable = false)
 	private long idEvento;
 
-	@Column(name="fechaHora",length=60,nullable=false)
+	@Column(name="fecha_hora",length=60,nullable=false)
 	private LocalDateTime fechaHora;
 	
 	@Column(name="descripcion",length=60,nullable=false)
@@ -31,17 +31,18 @@ public class Evento {
 	
 	public Evento() {}
 
-	public Evento(LocalDateTime fechaHora, String descripcion) {
+	public Evento(LocalDateTime fechaHora, String descripcion,Dispositivo dispositivo) {
 		super();
 		this.fechaHora = fechaHora;
-		descripcion = descripcion;
+		this.descripcion=descripcion;
+		this.dispositivo=dispositivo;
 	}
 
-	public LocalDateTime getFecha() {
+	public LocalDateTime getFechaHora() {
 		return fechaHora;
 	}
 
-	public void setFecha(LocalDateTime fechaHora) {
+	public void setFechaHora(LocalDateTime fechaHora) {
 		this.fechaHora = fechaHora;
 	}
 
@@ -50,14 +51,14 @@ public class Evento {
 	}
 
 	public void setDescripcion(String descripcion) {
-		descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 
-	public long getId() {
+	public long getIdEvento() {
 		return idEvento;
 	}
 
-	public void setId(long id) {
+	public void setIdEvento(long id) {
 		this.idEvento = id;
 	}
 

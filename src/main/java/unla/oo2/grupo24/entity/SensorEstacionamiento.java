@@ -35,10 +35,4 @@ public class SensorEstacionamiento extends Dispositivo {
         this.plazasLibres = plazasLibres;
     }
 
-    @Override
-    public String toString() {
-        return "SensorEstacionamiento{" +
-                "plazasLibres=" + plazasLibres +
-                '}';
     }
-}

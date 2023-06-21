@@ -20,9 +20,9 @@
     <tr th:each="cl:${lista}">
 
       <th scope="row" th:text="${cl.idEvento}"></th>
-      <th scope="row" th:text="${cl.nombre}"></th>
+    <th scope="row" th:text="${cl.fechaHora}"></th>
       <th scope="row" th:text="${cl.descripcion}"></th>
-      <th scope="row" th:text="${cl.dispositivo.nombre}"></th>
+      <th scope="row" th:text="${cl?.dispositivo?.nombre}"></th>
     </tr>
     </tbody>
   </table>

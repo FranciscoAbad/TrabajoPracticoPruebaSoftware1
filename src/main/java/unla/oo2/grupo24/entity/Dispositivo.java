@@ -120,9 +120,22 @@ public class Dispositivo {
 		this.mediciones = mediciones;
 	}
 
-	
-	
-	
-	
+	public void agregarEvento(Evento e){
+		e.setDispositivo(this);
+		this.eventos.add(e);
+	}
 
+
+	@Override
+	public String toString() {
+		return "Dispositivo{" +
+				"idDispositivo=" + idDispositivo +
+				", nombre='" + nombre + '\'' +
+				", descripcion='" + descripcion + '\'' +
+				", activo=" + activo +
+				", fecha=" + fecha +
+				", eventos=" + eventos +
+				", mediciones=" + mediciones +
+				'}';
+	}
 }

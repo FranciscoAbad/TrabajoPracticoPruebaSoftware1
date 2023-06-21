@@ -12,9 +12,9 @@
 <div class="container">
   <div class="jumbotron">
     <h1 class="display-5">Registrar evento</h1>
-    <form th:object=${evento} th:action="@{/evento}" method="post">
-      <input type="text" name="nombre" id="nombre" placeholder="nombre" />
-      <input type="text" name="descripcion" id="descrpicion" placeholder="descrpición" />
+    <form  th:action="@{/eventos}" method="post">
+      <input type="text" name="descripcion" id="descripcion" placeholder="descripcion" />
+      <input type="datetime-local" name="fechaHora" id="fechaHora">
       <input type="int" name="idDispositivo" id="idDispositivo" placeholder="id del dispositivo">
       <input type="submit" />
     </form>
