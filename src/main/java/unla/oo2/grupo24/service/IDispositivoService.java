@@ -7,11 +7,9 @@ import unla.oo2.grupo24.entity.Dispositivo;
 
 public interface IDispositivoService {
 	
-
-
 	public List<Dispositivo> listarTodos();
 	
-	public void guardarDispositivo(Banio b);
+	public void guardarDispositivo(Dispositivo b);
 	
 	public Dispositivo buscarId(long id);
 	

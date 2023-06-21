@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Sensores de luz</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th> Nombre </th>
+                <th> Descripcion </th>
+                <th> Fecha </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="sensor : ${list}">
+                <td><span th:text="${sensor.nombre}"> Nombre </span></td>
+                <td><span th:text="${sensor.descripcion}"> Descripcion </span></td>
+                <td><span th:text="${sensor.fecha}"> Fecha </span></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package unla.oo2.grupo24.service;
+package unla.oo2.grupo24.service.imp;
 
 import java.util.List;
 
@@ -6,19 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import unla.oo2.grupo24.entity.Banio;
-import unla.oo2.grupo24.entity.Dispositivo;
-import unla.oo2.grupo24.repository.DispositivoRepo;
+import unla.oo2.grupo24.repository.BanioRepo;
+import unla.oo2.grupo24.service.IBanioService;
 
 @Service
-public class DispositivoServiceImp implements IDispositivoService {
+public class BanioServiceImp implements IBanioService {
 	
 	@Autowired
-	private DispositivoRepo repo;
+	private BanioRepo repo;
 	
 	@Override
-	public List<Dispositivo> listarTodos() {
+	public List<Banio> listarTodos() {
 		
-		return (List<Dispositivo>) repo.findAll();
+		return repo.findAll();
 	}
 
 	@Override
@@ -28,15 +28,17 @@ public class DispositivoServiceImp implements IDispositivoService {
 	}
 
 	@Override
-	public Dispositivo buscarId(long id) {
+	public Banio buscarId(long id) {
 		
 		return repo.findById(id).orElse(null);
 	}
 
 	@Override
 	public void eliminar(long id) {
-	repo.deleteById(id);
+		repo.deleteById(id);
+		
 	}
+
 	
 
 }

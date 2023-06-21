@@ -8,8 +8,10 @@ import jakarta.persistence.PrimaryKeyJoinColumn;
 @Entity
 @DiscriminatorValue("banio")
 @PrimaryKeyJoinColumn(name = "id_banio")
+@DiscriminatorValue(value = "banio")
 public class Banio extends Dispositivo {
 	
+
 	@Column(name="higienizado",nullable=false)
 	private boolean higienizado;
 	
