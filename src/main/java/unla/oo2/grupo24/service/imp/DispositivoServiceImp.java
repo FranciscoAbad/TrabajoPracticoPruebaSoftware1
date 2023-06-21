@@ -23,7 +23,7 @@ public class DispositivoServiceImp implements IDispositivoService {
 	}
 
 	@Override
-	public void guardarDispositivo(Banio b) {
+	public void guardarDispositivo(Dispositivo b) {
 		repo.save(b);
 		
 	}
