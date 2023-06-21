@@ -1,17 +1,19 @@
 package unla.oo2.grupo24.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import unla.oo2.grupo24.entity.Dispositivo;
 import unla.oo2.grupo24.entity.Evento;
 import unla.oo2.grupo24.service.imp.DispositivoServiceImp;
 import unla.oo2.grupo24.service.imp.EventoServiceImp;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Controller
 public class EventoController {
@@ -27,10 +29,6 @@ public class EventoController {
     public String listarEventos(Model model) {
 
 
-       // Evento evento=new Evento(LocalDateTime.now(),"eventoo",serviceDispositivo.buscarId(1));
-       // System.out.println(serviceDispositivo.buscarId(1));
-//service.add(evento);
-
         List<Evento> listado = service.getAll();
         model.addAttribute("lista",listado);
 
@@ -38,7 +36,7 @@ public class EventoController {
         agregarListaDispositivosAlModelo(model);
         return "eventos/listaEventos";
     }
-
+/*
     @GetMapping("/eventos/create")
     public String formRegistroEvento(Model model) {
 
@@ -61,7 +59,7 @@ System.out.println(evento);
 
 
         return "eventos/listaEventos";
-    }
+    }*/
 
     @PostMapping("/eventos/filtrar")
     public String filtrarEventos(@RequestParam(value = "dispositivoId", required = false) Integer dispositivoId, Model model) {
@@ -85,7 +83,5 @@ System.out.println(evento);
         List<Dispositivo> listaDispositivos = serviceDispositivo.listarTodos();
         model.addAttribute("listaDispositivos", listaDispositivos);
     }
-
-
 
 }

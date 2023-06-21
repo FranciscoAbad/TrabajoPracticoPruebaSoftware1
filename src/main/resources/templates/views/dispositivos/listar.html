@@ -18,6 +18,8 @@
 	</header>
 
 <div class="container">
+
+
 	<table class="table">
   <thead>
     <tr>
@@ -37,39 +39,18 @@
       <th scope="row" th:text="${cl.descripcion}"></th>
       <th scope="row" th:text="${cl.activo}"></th>
       <th scope="row" th:text="${cl.fecha}"></th>
+      <th>
+	<a th:href="@{'/banios/eliminar/' + ${cl.idDispositivo}}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este registro?')">Eliminar</a>
 
+
+
+	  </th>
     </tr>
   </tbody>
 </table>
 </div>
-
-    <h1>Lista de Contenedores</h1>
-    <div class="container">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Ubicacion</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Lleno</th>
-
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="cl:${lista}">
-
-                <th scope="row" th:text="${cl.idContenedor}"></th>
-                <th scope="row" th:text="${cl.ubicacion}"></th>
-                <th scope="row" th:text="${cl.tipo}"></th>
-                <th scope="row" th:text="${cl.lleno}"></th>
-
-            </tr>
-            </tbody>
-        </table>
-    </div>
+	<a class="btn btn-primary" th:href="@{/banios/crear}" th:text="'Nuevo registro'" title="Crear Nuevo" ></a>
 	
-
 	<footer>
 	</footer>
 

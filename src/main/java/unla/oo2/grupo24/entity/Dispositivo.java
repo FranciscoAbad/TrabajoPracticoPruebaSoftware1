@@ -1,6 +1,7 @@
 package unla.oo2.grupo24.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -41,10 +42,10 @@ public class Dispositivo {
 	private LocalDate fecha;
 	
 	@OneToMany(mappedBy="dispositivo")
-	private List<Evento> eventos;
+	private List<Evento> eventos = new ArrayList<Evento>();
 	
 	@OneToMany(mappedBy="dispositivo")
-	private List<Medicion> mediciones;
+	private List<Medicion> mediciones = new ArrayList<Medicion>();
 
 	public Dispositivo() {}
 
