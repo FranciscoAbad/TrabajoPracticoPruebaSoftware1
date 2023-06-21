@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>UNLa</title>
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/modern-business.css" rel="stylesheet" />
+</head>
+<body>
+<!-- Page Content -->
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-5">Registrar Baño</h1>
+    <form th:action="@{/medicionestacionamiento}" method="post">
+      <input type="datetime-local" name="fechaHora" id="fechaHora">
+      <input type="int" name="idDispositivo" id="idDispositivo" placeholder="id del dispositivo">
+      <input type="checkbox"  id="higienizado" name="higienizado">
+
+      <input type="submit" />
+    </form>
+    <div th:if="${error != null}" class="alert alert-danger">
+      Invalid username or password.
+    </div>
+  </div>
+</div>
+<!-- Bootstrap core JavaScript -->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
