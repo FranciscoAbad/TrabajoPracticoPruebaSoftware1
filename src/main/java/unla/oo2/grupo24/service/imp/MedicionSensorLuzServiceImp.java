@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import unla.oo2.grupo24.entity.Medicion;
+import unla.oo2.grupo24.entity.alumbradointeligente.MedicionSensorLuz;
 import unla.oo2.grupo24.repository.MedicionRepo;
 import unla.oo2.grupo24.service.MedicionSensorLuzService;
 
@@ -14,29 +15,29 @@ public class MedicionSensorLuzServiceImp implements MedicionSensorLuzService {
     MedicionRepo medicionRepo;
 
     @Override
-    public boolean add(Medicion object) {
+    public boolean add(MedicionSensorLuz object) {
         medicionRepo.save(object);
         return true;
     }
 
     @Override
-    public List<Medicion> getAll() {
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+    public List<MedicionSensorLuz> getAll() {
+        return medicionRepo.findAllMedicionSensorLuz();
     }
 
     @Override
-    public Medicion getById(long id) {
-        return (Medicion)medicionRepo.findById(id).orElse(null);
+    public MedicionSensorLuz getById(long id) {
+        return (MedicionSensorLuz)medicionRepo.findById(id).orElse(null);
     }
 
     @Override
-    public Medicion modify(Medicion object) {
+    public MedicionSensorLuz modify(MedicionSensorLuz object) {
         return medicionRepo.save(object);
     }
 
     @Override
     public boolean delete(long id) {
-        Medicion aux = getById(id);
+        MedicionSensorLuz aux = getById(id);
         aux.setActivo(false);
         modify(aux);
         return true;

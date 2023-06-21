@@ -43,8 +43,7 @@ public class Medicion {
 	public Medicion() {
 	}
 
-	public Medicion(long idMedicion, LocalDateTime fechaHora, Dispositivo dispositivo) {
-		this.idMedicion = idMedicion;
+	public Medicion(LocalDateTime fechaHora, Dispositivo dispositivo) {
 		this.fechaHora = fechaHora;
 		this.dispositivo = dispositivo;
 	}
