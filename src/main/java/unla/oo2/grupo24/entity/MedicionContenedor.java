@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 public class MedicionContenedor extends Medicion{
     private boolean contenedorLLeno;
 
-    public MedicionContenedor(long idMedicion, LocalDateTime fechaHora, Dispositivo dispositivo, boolean contenedorLLeno) {
-        super(idMedicion, fechaHora, dispositivo);
+    public MedicionContenedor(LocalDateTime fechaHora, Dispositivo dispositivo, boolean contenedorLLeno) {
+        super(fechaHora, dispositivo);
         this.contenedorLLeno = contenedorLLeno;
     }
 

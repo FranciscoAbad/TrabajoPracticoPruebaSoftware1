@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import unla.oo2.grupo24.entity.Contenedor;
 
-import unla.oo2.grupo24.repository.DispositivoRepo;
 import unla.oo2.grupo24.service.GenericService;
+import unla.oo2.grupo24.repository.DispositivoRepo;
 
 @Service
 public class ContenedorServiceImp implements GenericService<Contenedor> {

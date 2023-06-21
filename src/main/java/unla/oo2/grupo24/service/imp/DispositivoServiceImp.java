@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import unla.oo2.grupo24.entity.Banio;
 import unla.oo2.grupo24.entity.Dispositivo;
-import unla.oo2.grupo24.repository.DispositivoRepo;
 import unla.oo2.grupo24.service.IDispositivoService;
+import unla.oo2.grupo24.repository.DispositivoRepo;
 
 @Service
 public class DispositivoServiceImp implements IDispositivoService {

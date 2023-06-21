@@ -2,8 +2,9 @@ package unla.oo2.grupo24.service.imp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import unla.oo2.grupo24.entity.Medicion;
-import unla.oo2.grupo24.repository.MedicionRepo;
 import unla.oo2.grupo24.service.IMedicionService;
+import unla.oo2.grupo24.repository.MedicionRepo;
+
 
 import java.util.List;
 

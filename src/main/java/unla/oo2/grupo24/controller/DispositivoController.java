@@ -19,13 +19,15 @@ public class DispositivoController {
 	
 	@Autowired
 	private IDispositivoService service;
-	
+
 	@GetMapping("/lista")
 	public String listarDispositivos(Model model) {
 		List<Dispositivo> listado = service.listarTodos();
 		model.addAttribute("lista",listado);
 		return "/views/dispositivos/listar";
 	}
+
+
 	
 	@GetMapping("/crear")
 	public String crear() {

@@ -12,6 +12,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -32,7 +36,7 @@ public class Dispositivo {
 	
 	@Column(name="activo",length=60,nullable=false)
 	private boolean activo;
-	
+
 	@Column(name="fecha",length=60,nullable=false)
 	private LocalDate fecha;
 	
@@ -116,9 +120,27 @@ public class Dispositivo {
 		this.mediciones = mediciones;
 	}
 
-	
-	
-	
-	
+	public void agregarEvento(Evento e){
+		e.setDispositivo(this);
+		this.eventos.add(e);
+	}
 
+	public void agregarMedicion(Medicion e){
+		e.setDispositivo(this);
+		this.mediciones.add(e);
+	}
+
+
+	@Override
+	public String toString() {
+		return "Dispositivo{" +
+				"idDispositivo=" + idDispositivo +
+				", nombre='" + nombre + '\'' +
+				", descripcion='" + descripcion + '\'' +
+				", activo=" + activo +
+				", fecha=" + fecha +
+				", eventos=" + eventos +
+				", mediciones=" + mediciones +
+				'}';
+	}
 }
