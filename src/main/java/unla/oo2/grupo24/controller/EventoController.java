@@ -1,20 +1,19 @@
 package unla.oo2.grupo24.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import unla.oo2.grupo24.entity.Dispositivo;
 import unla.oo2.grupo24.entity.Evento;
-import unla.oo2.grupo24.entity.SensorEstacionamiento;
 import unla.oo2.grupo24.service.imp.DispositivoServiceImp;
-import unla.oo2.grupo24.service.imp.EstacionamientoSevicesImp;
 import unla.oo2.grupo24.service.imp.EventoServiceImp;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Controller
 public class EventoController {

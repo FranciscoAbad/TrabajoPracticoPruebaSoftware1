@@ -42,6 +42,32 @@
   </tbody>
 </table>
 </div>
+
+    <h1>Lista de Contenedores</h1>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ubicacion</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Lleno</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cl:${lista}">
+
+                <th scope="row" th:text="${cl.idContenedor}"></th>
+                <th scope="row" th:text="${cl.ubicacion}"></th>
+                <th scope="row" th:text="${cl.tipo}"></th>
+                <th scope="row" th:text="${cl.lleno}"></th>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
 	
 
 	<footer>

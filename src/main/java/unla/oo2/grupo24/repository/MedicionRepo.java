@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import unla.oo2.grupo24.entity.Medicion;
+import unla.oo2.grupo24.entity.MedicionContenedor;
 import unla.oo2.grupo24.entity.MedicionEstacionamiento;
 import unla.oo2.grupo24.entity.alumbradointeligente.MedicionSensorLuz;
 
@@ -18,4 +19,8 @@ public interface MedicionRepo extends JpaRepository<Medicion, Serializable>{
 
     @Query("select s from MedicionSensorLuz s")
     List<MedicionSensorLuz> findAllMedicionSensorLuz();
+
+    @Query("SELECT c FROM MedicionContenedor c")
+    List<MedicionContenedor> findAllMedicionContenedor();
+
 }

@@ -64,10 +64,6 @@ public class Medicion {
 		this.fechaHora = fechaHora;
 	}
 
-	public Dispositivo getDispositivo() {
-		return dispositivo;
-	}
-
 	public void setDispositivo(Dispositivo dispositivo) {
 		this.dispositivo = dispositivo;
 	}
