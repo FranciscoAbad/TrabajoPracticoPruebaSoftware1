@@ -68,8 +68,4 @@ public class Medicion {
 		this.dispositivo = dispositivo;
 	}
 	
-	
-	
-	
-
 }

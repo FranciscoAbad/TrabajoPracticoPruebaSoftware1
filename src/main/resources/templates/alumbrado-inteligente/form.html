@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Sensor luz</title>
+</head>
+<body>
+    <h2>Create Sensor luz</h2>
+    <form th:action="@{/alumbrado-inteligente}" th:object="${alumbradoInteligente}" method="post">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" th:field="*{nombre}" required="required" />
+        </div>
+        <div>
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" th:field="*{descripcion}" required="required" />
+        </div>
+        
+        <div>
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+</body>
+</html>
