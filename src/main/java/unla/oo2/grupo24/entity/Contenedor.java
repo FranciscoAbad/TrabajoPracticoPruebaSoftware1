@@ -1,12 +1,12 @@
 package unla.oo2.grupo24.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
+@Table(name="contenedor")
+@DiscriminatorValue(value = "contenedor")
 @PrimaryKeyJoinColumn(name = "id_contenedor")
 public class Contenedor extends Dispositivo {
 
