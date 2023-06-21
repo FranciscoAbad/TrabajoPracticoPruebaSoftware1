@@ -3,6 +3,7 @@ package unla.oo2.grupo24.entity;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn( name = "tipo_medicion")
 public class Medicion {
 
 	@Id
@@ -23,6 +25,16 @@ public class Medicion {
 
 	@Column(name = "fecha_hora", nullable = false)
 	private LocalDateTime fechaHora;
+
+	private boolean activo;
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "id_dispositivo")

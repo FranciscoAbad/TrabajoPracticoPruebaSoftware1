@@ -116,10 +116,6 @@ public class Dispositivo {
 	public void setMediciones(List<Medicion> mediciones) {
 		this.mediciones = mediciones;
 	}
-
-	
-	
-	
 	
 
 }
