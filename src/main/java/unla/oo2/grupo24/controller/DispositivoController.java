@@ -15,24 +15,5 @@ import unla.oo2.grupo24.service.IDispositivoService;
 @Controller
 @RequestMapping("/views/dispositivos")
 public class DispositivoController {
-	
-	
-	@Autowired
-	private IDispositivoService service;
-
-	@GetMapping("/lista")
-	public String listarDispositivos(Model model) {
-		List<Dispositivo> listado = service.listarTodos();
-		model.addAttribute("lista",listado);
-		return "/views/dispositivos/listar";
-	}
-
-
-	
-	@GetMapping("/crear")
-	public String crear() {
-		
-		return "/views/dispositivos/crear";
-	}
 
 }

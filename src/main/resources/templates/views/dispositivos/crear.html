@@ -10,30 +10,58 @@
 </head>
 
 <body>
-	<h1>Lista de Baños</h1>
 
 
+	<div class="card m-2">
+		<div class="class-header bg-info">
+			<h3>Crear Baño</h3>
+		</div>
+		<div class="card-body">
+
+			<form th:action="@{/banios/crear}" th:object="${banio}" method="post" class="m-4" >
+
+				<div class="mb-3">
+					<label for="nombre" class="form-label">Nombre</label>
+					<input type="text" th:field="*{nombre}"  class="form-control" id="nombre">
+				</div>
+				<div class="mb-3">
+					<label for="descripcion" class="form-label">Descripcion</label>
+					<textarea class="form-control" th:field="*{descripcion}" id="descripcion"  rows="3"></textarea>
+				</div>
+				<div class="mb-3">
+					<div class="form-check">
+						<input class="form-check-input" th:field="*{activo}" type="checkbox" id="activo">
+						<label class="form-check-label">
+							Activo
+						</label>
+					</div>
+				</div>
+				<div class="mb-3">
+					<label for="fecha" class="form-label">Fecha</label>
+					<input type="date" th:field="*{fecha}"  class="form-control" id="fecha">
+				</div>
+				<div class="mb-3">
+					<label for="zona" class="form-label">Zona</label>
+					<input type="text" th:field="*{zona}" class="form-control" id="zona">
+				</div>
+				<div class="mb-3">
+					<label for="sexo" class="form-label">Sexo</label>
+					<input type="text" th:field="*{sexo}" class="form-control" id="sexo">
+				</div>
+
+				<div class="">
+					<input type="submit" class="btn btn-primary" value="Guardar" />
+				</div>
+
+			</form>
+		</div>
+	</div>
 	<header>
 
 	</header>
 
 	<div class="container">
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Nombre</label>
-			<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Descripcion</label>
-			<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Activo</label>
-			<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Fecha</label>
-			<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-		</div>
+
 	</div>
 
 

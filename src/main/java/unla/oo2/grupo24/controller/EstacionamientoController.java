@@ -1,23 +1,18 @@
 package unla.oo2.grupo24.controller;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import unla.oo2.grupo24.entity.Dispositivo;
-import unla.oo2.grupo24.entity.SensorEstacionamiento;
-import unla.oo2.grupo24.entity.User;
-import unla.oo2.grupo24.entity.UserRole;
-import unla.oo2.grupo24.service.IDispositivoService;
-import unla.oo2.grupo24.service.imp.EstacionamientoSevicesImp;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import unla.oo2.grupo24.entity.SensorEstacionamiento;
+import unla.oo2.grupo24.service.imp.EstacionamientoSevicesImp;
 
 @Controller
 public class EstacionamientoController {

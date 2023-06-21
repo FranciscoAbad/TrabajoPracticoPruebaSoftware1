@@ -1,13 +1,16 @@
 package unla.oo2.grupo24.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id_banio")
+@DiscriminatorValue(value = "banio")
 public class Banio extends Dispositivo {
 	
+
 	@Column(name="higienizado",nullable=false)
 	private boolean higienizado;
 	
