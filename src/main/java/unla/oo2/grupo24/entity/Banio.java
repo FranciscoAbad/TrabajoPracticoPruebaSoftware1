@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@DiscriminatorValue("banio")
 @PrimaryKeyJoinColumn(name = "id_banio")
 @DiscriminatorValue(value = "banio")
 public class Banio extends Dispositivo {
