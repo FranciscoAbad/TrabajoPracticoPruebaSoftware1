@@ -4,6 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 
+import java.time.LocalDate;
+
 @Entity
 @PrimaryKeyJoinColumn(name = "id_contenedor")
 public class Contenedor extends Dispositivo {
@@ -18,18 +20,19 @@ public class Contenedor extends Dispositivo {
     private String ubicacion;
 
 
-    public Contenedor() {}
-
-
-
-
-    public Contenedor(boolean lleno, String tipo,String ubicacion) {
+    public Contenedor() {
         super();
+    }
+
+
+    public Contenedor(String nombre, String descripcion, boolean activo, LocalDate fecha, boolean lleno, String tipo, String ubicacion) {
+        super(nombre, descripcion, activo, fecha);
         this.lleno = lleno;
         this.tipo = tipo;
-        this.ubicacion= ubicacion;
-
+        this.ubicacion = ubicacion;
     }
+
+
 
 
 
@@ -60,7 +63,13 @@ public class Contenedor extends Dispositivo {
         this.lleno = lleno;
     }
 
+    @Override
 
+    public String toString(){
+        return "Contenedor{ "+ "Lleno=" + lleno + " Tipo=" + tipo +
+                " Ubicacion=" + ubicacion + " }";
+
+    }
 
 
 
