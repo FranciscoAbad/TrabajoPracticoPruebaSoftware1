@@ -19,8 +19,8 @@ public class ContenedorController {
     @GetMapping("/contenedor")
     public String listarContenedores(Model model){
 
-        Contenedor contenedor=new Contenedor("nombre","descripcion",true, LocalDate.now(),true,"asf","asf");
-        service.add(contenedor);
+      //  Contenedor contenedor=new Contenedor("nombre","descripcion",true, LocalDate.now(),true,"asf","asf");
+       // service.add(contenedor);
         model.addAttribute("lista",service.getAll());
 
         return "views/dispositivos/listarContenedor";

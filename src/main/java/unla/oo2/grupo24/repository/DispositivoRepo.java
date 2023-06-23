@@ -26,5 +26,7 @@ public interface DispositivoRepo extends JpaRepository<Dispositivo,Long> {
 
 	@Query("SELECT b FROM Banio b")
     List<Banio> findAllBanio();
+
+
 	
 }
