@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import unla.oo2.grupo24.entity.Dispositivo;
 import unla.oo2.grupo24.entity.Evento;
+import unla.oo2.grupo24.entity.SensorEstacionamiento;
 import unla.oo2.grupo24.repository.EventoRepo;
 import unla.oo2.grupo24.service.EventoService;
 import unla.oo2.grupo24.service.GenericService;
@@ -30,17 +31,18 @@ public class EventoServiceImp implements EventoService {
 
     @Override
     public Evento getById(long id) {
-        return null;
+        return (Evento) repo.getById(id);
     }
 
     @Override
     public Evento modify(Evento object) {
-        return null;
+        return repo.save(object);
     }
 
     @Override
     public boolean delete(long id) {
-        return false;
+        repo.deleteById(id);
+        return true;
     }
 
     public List<Evento> filtrarPorDispositivo(int dispositivoId) {

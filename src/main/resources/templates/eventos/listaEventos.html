@@ -1,34 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Eventos</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    tbody tr {
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
 <body>
-<h1>Lista de Eventos</h1>
-
-
 <header>
-
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Lista de Eventos</a>
+    </div>
+  </nav>
 </header>
 
-<div class="container">
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">FechaHora</th>
-      <th scope="col">Descripcion</th>
-      <th scope="col">Dispositivo</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="cl:${lista}">
-
-      <th scope="row" th:text="${cl.idEvento}"></th>
-    <th scope="row" th:text="${cl.fechaHora}"></th>
-      <th scope="row" th:text="${cl.descripcion}"></th>
-      <th scope="row" th:text="${cl?.dispositivo?.nombre}"></th>
-    </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="container">
+<div class="container mt-4">
   <div class="row mb-3">
     <div class="col">
       <form th:action="@{/eventos/filtrar}" method="post">
@@ -43,13 +36,35 @@
       </form>
     </div>
   </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">FechaHora</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Dispositivo</th>
+      <th scope="col">Actions</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cl:${lista}" style="background-color: #f8f9fa;">
+      <th scope="row" th:text="${cl.idEvento}"></th>
+      <td th:text="${cl.fechaHora}"></td>
+      <td th:text="${cl.descripcion}"></td>
+      <td th:text="${cl?.dispositivo?.nombre}"></td>
+      <td>
+        <a th:href="@{'/eventos/' + ${cl.idEvento}}" class="btn btn-danger"
+           onclick="return confirm('¿Estás seguro de eliminar este registro?')">Eliminar</a>
+
+        <a th:href="@{'/eventos/' + ${cl.idEvento} + '/edit'}" class="btn btn-primary">Editar</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
-<footer>
-</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

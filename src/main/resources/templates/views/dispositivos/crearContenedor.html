@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<title>UNLa</title>
@@ -7,20 +8,37 @@
 	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/css/modern-business.css" rel="stylesheet" />
 </head>
+
 <body>
 <!-- Page Content -->
 <div class="container">
 	<div class="jumbotron">
 		<h1 class="display-5">Registrar contenedor</h1>
-		<form th:object=${contenedor} th:action="@{/contenedor}" method="post">
-			<input type="text" name="nombre" id="nombre" placeholder="nombre" />
-			<input type="text" name="descripcion" id="descrpicion" placeholder="descrpición" />
-			<input type="checkbox" name="lleno" id="lleno" th:field="*{lleno}">
-			<input type="text" name="ubicacion" id="ubicacion" placeholder="ubicacion" />
-			<input type="text" name="tipo" id="tipo" placeholder="tipo" />
-			<input type="submit" />
+		<form th:object="${contenedor}" th:action="@{/contenedor}" method="post">
+			<div class="mb-3">
+				<label for="nombre" class="form-label">Nombre</label>
+				<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" />
+			</div>
+			<div class="mb-3">
+				<label for="descripcion" class="form-label">Descripción</label>
+				<input type="text" class="form-control" id="descripcion" name="descripcion"
+					   placeholder="Descripción" />
+			</div>
+			<div class="mb-3 form-check">
+				<input type="checkbox" class="form-check-input" id="lleno" name="lleno" th:field="*{lleno}" />
+				<label class="form-check-label" for="lleno">Lleno</label>
+			</div>
+			<div class="mb-3">
+				<label for="ubicacion" class="form-label">Ubicación</label>
+				<input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ubicación" />
+			</div>
+			<div class="mb-3">
+				<label for="tipo" class="form-label">Tipo</label>
+				<input type="text" class="form-control" id="tipo" name="tipo" placeholder="Tipo" />
+			</div>
+			<button type="submit" class="btn btn-primary">Enviar</button>
 		</form>
-		<div th:if="${error != null}" class="alert alert-danger">
+		<div th:if="${error != null}" class="alert alert-danger mt-3">
 			Invalid username or password.
 		</div>
 	</div>
@@ -29,4 +47,5 @@
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
