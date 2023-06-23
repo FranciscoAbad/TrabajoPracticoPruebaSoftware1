@@ -42,6 +42,7 @@ public class ContenedorController {
 
         contenedor.setFecha(LocalDate.now());
         contenedor.setActivo(true);
+        contenedor.setLleno(false);
 
         service.add(contenedor);
 

@@ -40,12 +40,12 @@ public class MedicionContenedorController {
     public String agregarMedicionContenedor(@RequestParam("fechaHora") LocalDateTime fechaHora, @RequestParam("idDispositivo") int idDispositivo,@RequestParam(value = "lleno", defaultValue = "false") boolean lleno) {
 
         Contenedor contenedor=serviceContenedor.getById(idDispositivo);
-
+        MedicionContenedor medicion=new MedicionContenedor(fechaHora,contenedor,lleno);
+        serviceMedicionContenedor.add(medicion);
         if(lleno!=contenedor.isLleno()){
 
             contenedor.setLleno(lleno);
-            MedicionContenedor medicion=new MedicionContenedor(fechaHora,contenedor,lleno);
-            serviceMedicionContenedor.add(medicion);
+
 
 
 
