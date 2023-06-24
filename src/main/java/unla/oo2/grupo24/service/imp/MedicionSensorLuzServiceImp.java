@@ -3,12 +3,13 @@ package unla.oo2.grupo24.service.imp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import unla.oo2.grupo24.entity.Medicion;
 import unla.oo2.grupo24.entity.alumbradointeligente.MedicionSensorLuz;
 import unla.oo2.grupo24.repository.MedicionRepo;
 import unla.oo2.grupo24.service.MedicionSensorLuzService;
 
+@Service
 public class MedicionSensorLuzServiceImp implements MedicionSensorLuzService {
 
     @Autowired

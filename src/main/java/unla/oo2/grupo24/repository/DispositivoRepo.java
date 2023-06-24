@@ -12,6 +12,8 @@ import unla.oo2.grupo24.entity.Dispositivo;
 import unla.oo2.grupo24.entity.SensorEstacionamiento;
 import unla.oo2.grupo24.entity.alumbradointeligente.AlumbradoInteligente;
 
+import java.util.List;
+
 @Repository
 public interface DispositivoRepo extends JpaRepository<Dispositivo,Long> {
 
@@ -24,7 +26,10 @@ public interface DispositivoRepo extends JpaRepository<Dispositivo,Long> {
     @Query ("SELECT s FROM Contenedor s")
     List<Contenedor> findAllContenedor();
 
+
 	@Query("SELECT b FROM Banio b")
     List<Banio> findAllBanio();
+
+
 	
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Evento</title>
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/modern-business.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h1 class="display-4">Editar Evento</h1>
+  <form th:action="@{/eventos/{id}/update(id=${evento.idEvento})}" method="post">
+    <div class="form-group">
+      <label for="descripcion">Descripción:</label>
+      <input type="text" class="form-control" id="descripcion" name="descripcion" th:value="${evento.descripcion}" required>
+    </div>
+    <div class="form-group">
+      <label for="fechaHora">Fecha y Hora:</label>
+      <input type="datetime-local" class="form-control" id="fechaHora" name="fechaHora" th:value="${evento.fechaHora}" required>
+    </div>
+    <div class="form-group">
+      <label for="idDispositivo">Dispositivo:</label>
+      <select class="form-control" id="idDispositivo" name="idDispositivo" required>
+        <option th:each="dispositivo : ${listaDispositivos}"
+                th:value="${dispositivo.idDispositivo}"
+                th:text="${dispositivo.nombre}"
+                th:selected="${dispositivo.idDispositivo == evento.dispositivo.idDispositivo}">
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+  </form>
+</div>
+<!-- Bootstrap core JavaScript -->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -33,11 +33,12 @@ public class MedicionEstacionamientoServiceImp implements IMedicionEstacionamien
 
     @Override
     public MedicionEstacionamiento modify(MedicionEstacionamiento object) {
-        return null;
+        return repo.save(object);
     }
 
     @Override
     public boolean delete(long id) {
-        return false;
+        repo.deleteById(id);
+        return true;
     }
 }

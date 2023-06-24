@@ -4,6 +4,7 @@ package unla.oo2.grupo24.controller;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import unla.oo2.grupo24.service.imp.EventoServiceImp;
 import unla.oo2.grupo24.service.imp.MedicionEstacionamientoServiceImp;
 
 @Controller
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class MedicionEstacionamientoController {
 
     @Autowired
@@ -42,13 +44,15 @@ public class MedicionEstacionamientoController {
         //SE BUSCA UN DISPOSITIVO EL DISPOSITIVO AL CUAL QUIERO AÑADIR LA MEDICION
         SensorEstacionamiento sensor=serviceEstacionamiento.getById(idDispositivo);
         //SI EL RESULTADO DE LA MEDICION(EL BOOLEAN) ES IGUAL A EL ESTADO ACTUAL DEL DISPOSITIVO, NO SE AGREGA NINGUN EVENTO YA QUE BASICAMENTE NADA CAMBIO
-       if(plazaOcupada!=sensor.isEstadoActual()){
+        MedicionEstacionamiento medicion=new MedicionEstacionamiento(fechaHora,sensor,plazaOcupada);
+        //SE AGREGA LA MEDICION
+        serviceMedicion.add(medicion);
+
+        if(plazaOcupada!=sensor.isEstadoActual()){
 
            //SE SETEA EL ESTADO ACTUAL AL RESULTADO DE LA MEDICION
             sensor.setEstadoActual(plazaOcupada);
-            MedicionEstacionamiento medicion=new MedicionEstacionamiento(fechaHora,sensor,plazaOcupada);
-           //SE AGREGA LA MEDICION
-            serviceMedicion.add(medicion);
+
 
 
             //SE CREA EL EVENTO

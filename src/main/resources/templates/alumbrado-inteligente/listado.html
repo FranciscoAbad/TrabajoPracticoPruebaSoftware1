@@ -1,26 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Sensores de luz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="/css/modern-business.css" rel="stylesheet" />
+
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
+
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th> Nombre </th>
-                <th> Descripcion </th>
-                <th> Fecha </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="sensor : ${list}">
-                <td><span th:text="${sensor.nombre}"> Nombre </span></td>
-                <td><span th:text="${sensor.descripcion}"> Descripcion </span></td>
-                <td><span th:text="${sensor.fecha}"> Fecha </span></td>
-            </tr>
-        </tbody>
-    </table>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/home">Lista de alumbrado</a>
+            <button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive" data-toggle="collapse"
+                type="button"></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <div aria-labelledby="navbarDropdownBlog" class="dropdown-menu dropdown-menu-right">
+                        <form th:action="@{/logout}" method="post">
+                            <input class="dropdown-item" style="cursor: pointer" type="submit" value="Logout" />
+                        </form>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Listado de Sensores de luz</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Fecha</th>
+                    <th>Estado de luz</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="sensor : ${list}">
+                    <div th:if="${sensor.activo}">
+                        <td><span th:text="${sensor.nombre}">Nombre</span></td>
+                        <td><span th:text="${sensor.descripcion}">Descripción</span></td>
+                        <td><span th:text="${sensor.fecha}">Fecha</span></td>
+                        <td th:text="${sensor.encendido ? 'Encendido' : 'Apagado'}"></td>
+                        <td>
+                            <a th:href="@{'/alumbrado-inteligente/' + ${sensor.idDispositivo}}" class="btn btn-danger"
+                                onclick="return confirm('¿Estás seguro de eliminar este registro?')">Eliminar</a>
+                            <a th:href="@{'/alumbrado-inteligente/' + ${sensor.idDispositivo} + '/edit'}"
+                                class="btn btn-primary">Editar</a>
+                        </td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
+
 </html>

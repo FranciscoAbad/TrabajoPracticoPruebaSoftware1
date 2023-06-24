@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
@@ -19,7 +20,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Entity
-@DiscriminatorColumn(name="tipo_dispositivo")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "tipo_dispositivo")
 public class Dispositivo {
@@ -42,10 +42,10 @@ public class Dispositivo {
 	@Column(name="fecha",length=60,nullable=false)
 	private LocalDate fecha;
 	
-	@OneToMany(mappedBy="dispositivo")
+	@OneToMany(mappedBy="dispositivo",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Evento> eventos = new ArrayList<Evento>();
 	
-	@OneToMany(mappedBy="dispositivo")
+	@OneToMany(mappedBy="dispositivo",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Medicion> mediciones = new ArrayList<Medicion>();
 
 	public Dispositivo() {}

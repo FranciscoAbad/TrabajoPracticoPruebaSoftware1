@@ -6,6 +6,6 @@ import unla.oo2.grupo24.entity.Evento;
 import java.util.List;
 
 public interface EventoService extends GenericService<Evento> {
-    public List<Evento> filtrarPorDispositivo(int dispositivoId);
+
 
 }
