@@ -67,7 +67,6 @@ public class AlumbradoInteligenteController {
         AlumbradoInteligente alumbradoInteligente = alumbradoInteligenteService.getById(id);
         alumbradoInteligente.setNombre(alumbrado.getNombre());
         alumbradoInteligente.setDescripcion(alumbrado.getDescripcion());
-        alumbradoInteligente.setActivo(alumbrado.isEncendido());
         alumbradoInteligenteService.modify(alumbradoInteligente);
         List<AlumbradoInteligente> dispositivos = alumbradoInteligenteService.getAll();
         model.addAttribute("list", dispositivos);
