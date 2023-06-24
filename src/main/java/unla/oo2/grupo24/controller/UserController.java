@@ -33,7 +33,7 @@ public class UserController {
         return ViewRouteHelper.USER_REGISTER;
     }
     @PostMapping("/register/form")
-    public ResponseEntity<String> registerUser(@RequestParam("username") String username, @RequestParam("password") String password,@RequestParam("adminPassword") String adminPassword) {
+    public String registerUser(@RequestParam("username") String username, @RequestParam("password") String password,@RequestParam("adminPassword") String adminPassword) {
         // Validate the username and password as per your requirements
         // ...
 
@@ -52,7 +52,7 @@ String adminPass="unlaAdmin1234*";
             roleRepository.save(new UserRole(newUser,"ROLE_ADMIN"));
         }
 
-        return ResponseEntity.ok("User registered successfully");
+        return "redirect:/login";
     }
 
 

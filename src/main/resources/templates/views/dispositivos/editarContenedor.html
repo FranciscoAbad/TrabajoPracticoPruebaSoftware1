@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>UNLa</title>
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/modern-business.css" rel="stylesheet" />
+</head>
+
+<body>
+<!-- Page Content -->
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-5">Editar contenedor</h1>
+    <form th:object="${contenedor}" th:action="@{/contenedor/{id}/update(id=${contenedor.idDispositivo})}" method="post">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" th:value="${contenedor.nombre}" />
+      </div>
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" th:value="${contenedor.descripcion}" />
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="lleno" name="lleno" th:checked="${contenedor.lleno}" />
+        <label class="form-check-label" for="lleno">Lleno</label>
+      </div>
+      <div class="mb-3">
+        <label for="ubicacion" class="form-label">Ubicación</label>
+        <input type="text" class="form-control" id="ubicacion" name="ubicacion" th:value="${contenedor.ubicacion}" />
+      </div>
+      <div class="mb-3">
+        <label for="tipo" class="form-label">Tipo</label>
+        <input type="text" class="form-control" id="tipo" name="tipo" th:value="${contenedor.tipo}" />
+      </div>
+      <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+    <div th:if="${error != null}" class="alert alert-danger mt-3" role="alert">
+      Error al actualizar el contenedor. Por favor, inténtalo nuevamente.
+    </div>
+  </div>
+</div>
+<!-- /.container -->
+
+<!-- Bootstrap core JavaScript -->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

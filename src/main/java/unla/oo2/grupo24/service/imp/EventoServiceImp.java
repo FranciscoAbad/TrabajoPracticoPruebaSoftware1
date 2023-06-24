@@ -7,6 +7,7 @@ import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import unla.oo2.grupo24.entity.Evento;
+import unla.oo2.grupo24.entity.SensorEstacionamiento;
 import unla.oo2.grupo24.repository.EventoRepo;
 import unla.oo2.grupo24.service.EventoService;
 
