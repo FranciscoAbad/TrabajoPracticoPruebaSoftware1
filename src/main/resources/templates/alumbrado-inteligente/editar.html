@@ -25,10 +25,6 @@
           <input type="text" class="form-control" id="descripcion" name="descripcion"
             th:value="${alumbrado.descripcion}" />
         </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="encendido" name="encendido" th:checked="${alumbrado.encendido}" />
-          <label class="form-check-label" for="encendido">Encendido</label>
-        </div>
         <button type="submit" class="btn btn-primary">Actualizar</button>
       </form>
       <div th:if="${error != null}" class="alert alert-danger mt-3" role="alert">
