@@ -72,6 +72,7 @@
            onclick="return confirm('¿Estás seguro de eliminar este registro?')">
           Eliminar
         </a>
+        <a th:href="@{'/estacionamiento/' + ${cl.idDispositivo} + '/edit'}" class="btn btn-primary">Editar</a>
       </td>
     </tr>
     </tbody>

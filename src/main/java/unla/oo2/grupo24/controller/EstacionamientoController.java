@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import unla.oo2.grupo24.entity.Dispositivo;
-import unla.oo2.grupo24.entity.Evento;
-import unla.oo2.grupo24.entity.Medicion;
-import unla.oo2.grupo24.entity.SensorEstacionamiento;
+import unla.oo2.grupo24.entity.*;
 import unla.oo2.grupo24.service.imp.EstacionamientoSevicesImp;
 
 @Controller
@@ -68,4 +65,22 @@ public class EstacionamientoController {
         service.delete(id);
         return "redirect:/estacionamiento";
     }
+
+    @GetMapping("/estacionamiento/{id}/edit")
+    public String formEditarEstacionamiento(@PathVariable("id") long id, Model model) {
+       SensorEstacionamiento estacionamiento = service.getById(id);
+        model.addAttribute("estacionamiento", estacionamiento);
+        return "views/dispositivos/editarEstacionamiento";
+    }
+
+    @PostMapping("/estacionamiento/{id}/update")
+    public String formEditarEstacionamiento(@PathVariable("id") long id, @ModelAttribute("contenedor") Contenedor contenedor, Model model) {
+        SensorEstacionamiento sensor = service.getById(id);
+        sensor.setNombre(contenedor.getNombre());
+        sensor.setDescripcion(contenedor.getDescripcion());
+        service.modify(sensor);
+        model.addAttribute("lista", service.getAll());
+        return "views/dispositivos/listaEstacionamientos";
+    }
+
 }
