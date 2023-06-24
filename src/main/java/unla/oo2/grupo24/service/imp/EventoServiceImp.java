@@ -47,18 +47,19 @@ public class EventoServiceImp implements EventoService {
 
     @Override
     public boolean delete(long id) {
-        return false;
+        repo.deleteById(id);
+        return true;
     }
 
 
 
     public List<Evento> filtrarPorTipo(String tipoDispositivo) {
-        String sqlQuery = "SELECT e.* FROM Evento e JOIN Dispositivo d ON e.id_dispositivo = d.id_dispositivo WHERE d.tipo_dispositivo = :tipoDispositivo";
+      //  String sqlQuery = "SELECT e.* FROM Evento e JOIN Dispositivo d ON e.id_dispositivo = d.id_dispositivo WHERE d.tipo_dispositivo = :tipoDispositivo";
 
-        NativeQuery<Evento> query =(org.hibernate.query.NativeQuery<Evento>) entityManager.createNativeQuery(sqlQuery, Evento.class);
-        query.setParameter("tipoDispositivo", tipoDispositivo);
+      //  NativeQuery<Evento> query =(org.hibernate.query.NativeQuery<Evento>) entityManager.createNativeQuery(sqlQuery, Evento.class);
+      //  query.setParameter("tipoDispositivo", tipoDispositivo);
 
-        return query.getResultList();
+        return repo.findByTipe(tipoDispositivo);
     }
 /* ASI SERIA PARA FILTRAR CON UNA QUERY SIN REUTILIZAR CODIGO, IMAGINO QUE LA VENTAJA DE NO REUTILIZAR CODIGO Y UTILIZAR UNA QUERY PARA CADA FILTRADO SERIA EL RENDIMIENTO, PERO EN ESTE CASO CREO QUE NO SERIA TAN IMPORTANTE
     public List<Evento> filtrarPorTipoYDispositivo(String tipoDispositivo, int dispositivoId) {

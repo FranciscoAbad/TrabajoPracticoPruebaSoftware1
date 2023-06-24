@@ -4,15 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorColumn;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -37,10 +29,10 @@ public class Dispositivo {
 	@Column(name="fecha",length=60,nullable=false)
 	private LocalDate fecha;
 	
-	@OneToMany(mappedBy="dispositivo")
+	@OneToMany(mappedBy="dispositivo",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Evento> eventos = new ArrayList<Evento>();
 	
-	@OneToMany(mappedBy="dispositivo")
+	@OneToMany(mappedBy="dispositivo",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Medicion> mediciones = new ArrayList<Medicion>();
 
 	public Dispositivo() {}

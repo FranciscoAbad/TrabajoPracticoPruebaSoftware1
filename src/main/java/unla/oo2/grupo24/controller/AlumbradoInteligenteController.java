@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import unla.oo2.grupo24.service.AlumbradoInteligenteService;
 
 @Controller
 @RequestMapping("/alumbrado-inteligente")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class AlumbradoInteligenteController {
     
     @Autowired

@@ -3,6 +3,7 @@ package unla.oo2.grupo24.controller;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import unla.oo2.grupo24.service.imp.BanioServiceImp;
 import unla.oo2.grupo24.service.imp.MedicionBanioImp;
 
 @Controller
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class MedicionBanioControler {
 
 	@Autowired

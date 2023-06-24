@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +12,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import unla.oo2.grupo24.entity.Dispositivo;
+import unla.oo2.grupo24.entity.Evento;
+import unla.oo2.grupo24.entity.Medicion;
 import unla.oo2.grupo24.entity.SensorEstacionamiento;
 import unla.oo2.grupo24.service.imp.EstacionamientoSevicesImp;
 
 @Controller
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class EstacionamientoController {
 
     @Autowired
     private EstacionamientoSevicesImp service;
+
 
 
     @GetMapping("/estacionamiento")
@@ -61,8 +67,10 @@ estacionamiento.setEstadoActual(false);
     @GetMapping("/estacionamiento/{id}")
     public String eliminarContenedor(@PathVariable("id") long id, Model model) {
 
-        service.delete(id);
 
+
+
+        service.delete(id);
         return "redirect:/estacionamiento";
     }
 }
