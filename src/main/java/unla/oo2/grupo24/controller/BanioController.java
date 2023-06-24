@@ -43,7 +43,10 @@ public class BanioController {
 	
 	@PostMapping("/crear")
 	public String crearDispositivos(@ModelAttribute("banio") Banio dispositivo) {
+		dispositivo.setActivo(true);
+
 		service.guardarDispositivo(dispositivo);
+		
 		return "redirect:/banios/lista";
 	}
 	
