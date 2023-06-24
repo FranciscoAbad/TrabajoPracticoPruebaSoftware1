@@ -4,7 +4,7 @@
 
 ## Pasos a seguir:
 
-1. **Clonar el proyecto** desde el repositorio.
+1. **Clonar el proyecto** desde el repositorio (Desde la branch main).
 
 ---
 
