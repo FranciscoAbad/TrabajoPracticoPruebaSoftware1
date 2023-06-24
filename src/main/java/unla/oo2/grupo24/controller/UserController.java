@@ -41,7 +41,6 @@ String adminPass="unlaAdmin1234*";
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPass=passwordEncoder.encode(password);
 
-        Set<UserRole> roles=new HashSet<>();
 
         // Create a new User object with the registration details
         User newUser = new User(username, encodedPass,true);

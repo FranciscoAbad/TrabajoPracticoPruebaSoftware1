@@ -3,14 +3,13 @@ package unla.oo2.grupo24.service.imp;
 import jakarta.persistence.EntityManager;
 
 
-import org.hibernate.query.NativeQuery;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import unla.oo2.grupo24.entity.Dispositivo;
 import unla.oo2.grupo24.entity.Evento;
 import unla.oo2.grupo24.repository.EventoRepo;
 import unla.oo2.grupo24.service.EventoService;
-import unla.oo2.grupo24.service.GenericService;
+
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -20,8 +19,6 @@ import java.util.List;
 public class EventoServiceImp implements EventoService {
     @Autowired
     DispositivoServiceImp serviceDispositivo;
-    @Autowired
-    EntityManager entityManager;
     @Autowired
     EventoRepo repo;
     @Override
@@ -37,12 +34,12 @@ public class EventoServiceImp implements EventoService {
 
     @Override
     public Evento getById(long id) {
-        return null;
+      return repo.findById(id).orElse(null);
     }
 
     @Override
     public Evento modify(Evento object) {
-        return null;
+        return repo.save(object);
     }
 
     @Override
@@ -54,14 +51,11 @@ public class EventoServiceImp implements EventoService {
 
 
     public List<Evento> filtrarPorTipo(String tipoDispositivo) {
-      //  String sqlQuery = "SELECT e.* FROM Evento e JOIN Dispositivo d ON e.id_dispositivo = d.id_dispositivo WHERE d.tipo_dispositivo = :tipoDispositivo";
-
-      //  NativeQuery<Evento> query =(org.hibernate.query.NativeQuery<Evento>) entityManager.createNativeQuery(sqlQuery, Evento.class);
-      //  query.setParameter("tipoDispositivo", tipoDispositivo);
+      //  SE USA ESTA QUERY EN EL REPO "SELECT e.* FROM Evento e JOIN Dispositivo d ON e.id_dispositivo = d.id_dispositivo WHERE d.tipo_dispositivo = :tipoDispositivo";
 
         return repo.findByTipe(tipoDispositivo);
     }
-/* ASI SERIA PARA FILTRAR CON UNA QUERY SIN REUTILIZAR CODIGO, IMAGINO QUE LA VENTAJA DE NO REUTILIZAR CODIGO Y UTILIZAR UNA QUERY PARA CADA FILTRADO SERIA EL RENDIMIENTO, PERO EN ESTE CASO CREO QUE NO SERIA TAN IMPORTANTE
+/* PODRIA HACERLO CON UNA QUERY ASI EN EL REPO
     public List<Evento> filtrarPorTipoYDispositivo(String tipoDispositivo, int dispositivoId) {
         String sqlQuery = "SELECT e.* FROM Evento e JOIN Dispositivo d ON e.id_dispositivo = d.id_dispositivo WHERE d.tipo_dispositivo = :tipoDispositivo AND d.id_dispositivo = :dispositivoId";
         NativeQuery<Evento> query = (org.hibernate.query.NativeQuery<Evento>) entityManager.createNativeQuery(sqlQuery, Evento.class);
@@ -83,7 +77,7 @@ public class EventoServiceImp implements EventoService {
 
         return eventosFiltradosPorTipoYDispositivo;
     }
-/* ESTA PORDIRA SER LA QUERY PARA FILTRAR POR FECHA, TIPO Y DISPOSITIVO, NOTESE QUE TODAS ESTAS CONSULTAS SON SQL Y NO HQL, YA QUE NO TENGO EL DATO TIPO_DISPOSITIVO EN LA CLASE, SOLO LO TENGO EN BD
+/* ESTA PORDIRA SER LA QUERY SI ESTUVIERA EN EL REPO PARA FILTRAR POR FECHA, TIPO Y DISPOSITIVO, NOTESE QUE TODAS ESTAS CONSULTAS SON SQL Y NO HQL, YA QUE NO TENGO EL DATO TIPO_DISPOSITIVO EN LA CLASE, SOLO LO TENGO EN BD
 "SELECT e.* FROM Evento e " +
                       "JOIN Dispositivo d ON e.id_dispositivo = d.id_dispositivo " +
                       "WHERE d.tipo_dispositivo = :tipoDispositivo " +

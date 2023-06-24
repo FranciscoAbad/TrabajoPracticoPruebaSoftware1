@@ -30,8 +30,7 @@ public class EstacionamientoController {
     @GetMapping("/estacionamiento")
     public String listarDispositivos(Model model) {
 
-       // SensorEstacionamiento sensorEstacionamiento=new SensorEstacionamiento("nombe","dispositivo",true, LocalDate.now(),true);
-       // service.add(sensorEstacionamiento);
+
         List<SensorEstacionamiento> listado = service.getAll();
         model.addAttribute("lista",listado);
 
@@ -52,12 +51,11 @@ public class EstacionamientoController {
     public String registerUser( @ModelAttribute("estacionamiento") SensorEstacionamiento estacionamiento,Model model) {
 
 
-estacionamiento.setFecha(LocalDate.now());
-estacionamiento.setActivo(true);
-estacionamiento.setEstadoActual(false);
+        estacionamiento.setFecha(LocalDate.now());
+        estacionamiento.setActivo(true);
+        estacionamiento.setEstadoActual(false);
 
         service.add(estacionamiento);
-
 
 
 
@@ -66,9 +64,6 @@ estacionamiento.setEstadoActual(false);
 
     @GetMapping("/estacionamiento/{id}")
     public String eliminarContenedor(@PathVariable("id") long id, Model model) {
-
-
-
 
         service.delete(id);
         return "redirect:/estacionamiento";

@@ -10,14 +10,12 @@ import org.springframework.stereotype.Service;
 
 
 import unla.oo2.grupo24.entity.Dispositivo;
-import unla.oo2.grupo24.entity.SensorEstacionamiento;
 import unla.oo2.grupo24.service.IDispositivoService;
 import unla.oo2.grupo24.repository.DispositivoRepo;
 
 @Service
 public class DispositivoServiceImp implements IDispositivoService {
-	@Autowired
-	EntityManager entityManager;
+
 	@Autowired
 	private DispositivoRepo repo;
 
@@ -44,27 +42,5 @@ public class DispositivoServiceImp implements IDispositivoService {
 	}
 
 
-	public List<Dispositivo> listarPorTipoDispositivo(String tipo) {
-
-
-		List<Dispositivo> dispositivos = listarTodos();
-
-
-		List<Dispositivo> nuevaLista = new ArrayList<>();
-
-		if (tipo == "SensorEstacionamiento") {
-			for (Dispositivo dispositivo : dispositivos) {
-				if (dispositivo instanceof SensorEstacionamiento) {
-					System.out.println("------------------------------------------------------>"+dispositivo);
-					nuevaLista.add(dispositivo);
-					// Realiza las operaciones específicas para un dispositivo de tipo Banio
-				}
-			}
-
-
-		}
-
-		return nuevaLista;
-	}
 
 }
